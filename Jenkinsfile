@@ -30,7 +30,7 @@ pipeline{
         stage("Deploy to kubernetes"){
             steps{
                 script{
-                    env.KUBECONFIG = '/home/ubuntu/.kube/config'
+                    env.KUBECONFIG = '/home/ubuntu/config'
                     sh("kubectl --kubeconfig=${env.KUBECONFIG} set image deployment/swe-645-hw3 container-0=vsomasun/swe-645-cicd-hw3:${BUILD_TIMESTAMP} -n default")
                 }
             }
