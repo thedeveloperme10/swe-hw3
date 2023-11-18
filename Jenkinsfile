@@ -31,6 +31,9 @@ pipeline{
             steps{
                 script{
                     env.KUBECONFIG = '/home/ubuntu/.kube/config'
+                    sh 'echo $HOME'
+                    sh 'whoami'
+                    sh 'cat /home/ubuntu/.kube/config'
                     sh("kubectl --kubeconfig=${env.KUBECONFIG} set image deployment/swe-645-hw3-deployment container-0=vsomasun/swe-645-cicd-hw3:${BUILD_TIMESTAMP} -n default")
                 }
             }
