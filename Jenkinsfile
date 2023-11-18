@@ -30,7 +30,7 @@ pipeline{
         stage("Deploy to kubernetes"){
             steps{
                 script{
-                    env.KUBECONFIG = '/home/ubuntu/.kube/config'
+                    env.KUBECONFIG = '/root/.kube/config'
                     sh 'echo $HOME'
                     sh 'whoami'
                     sh 'cat /home/ubuntu/.kube/config'
